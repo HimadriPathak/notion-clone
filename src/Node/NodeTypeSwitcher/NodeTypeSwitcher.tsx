@@ -1,5 +1,7 @@
-import type { NodeData, NodeTypes } from "../utils/types";
-import { BasicNode } from "./BasicNode/BasicNode";
+import type { NodeData, NodeTypes } from "../../utils/types";
+import { BasicNode } from "../BasicNode/BasicNode";
+import { ImageNode } from "../ImageNode/ImageNode";
+import { PageNode } from "../PageNode/PageNode";
 type NodeTypeSwitcherProps = {
   node: NodeData;
   updateFousedIndex(index: number): void;
@@ -31,6 +33,12 @@ export const NodeTypeSwitcher = ({
         updateFousedIndex={updateFousedIndex}
       />
     );
+  }
+  if (node.type === "page") {
+    return <PageNode node={node} index={index} isFocused={isFocused} />;
+  }
+  if (node.type === "image") {
+    return <ImageNode node={node} index={index} isFocused={isFocused} />;
   }
   return null;
 };

@@ -1,13 +1,38 @@
+import { Route, Routes } from "react-router-dom";
+import { Auth } from "./auth/Auth";
+import { Private } from "./auth/Private";
 import { Page } from "./Page/Page";
 import { AppStateProvider } from "./state/AppStateContext";
-import { createPage } from "./utils/createPage";
 
 function App() {
-  const initialState = createPage();
   return (
-    <AppStateProvider initialState={initialState}>
-      <Page />
-    </AppStateProvider>
+    <Routes>
+      <Route path="/auth" element={<Auth />} />
+      <Route
+        path="/:id"
+        element={
+          <Private
+            component={
+              <AppStateProvider>
+                <Page />
+              </AppStateProvider>
+            }
+          />
+        }
+      />
+      <Route
+        path="/"
+        element={
+          <Private
+            component={
+              <AppStateProvider>
+                <Page />
+              </AppStateProvider>
+            }
+          />
+        }
+      />
+    </Routes>
   );
 }
 

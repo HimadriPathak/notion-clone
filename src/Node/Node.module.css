@@ -32,17 +32,27 @@
 }
 
 .heading1 {
-  font-size: 40px;
+  font-size: 96px;
   font-weight: bold;
 }
 
 .heading2 {
-  font-size: 30px;
+  font-size: 60px;
   font-weight: bold;
 }
 
 .heading3 {
-  font-size: 20px;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.heading4 {
+  font-size: 34px;
+  font-weight: bold;
+}
+
+.heading5 {
+  font-size: 24px;
   font-weight: bold;
 }
 
